@@ -5,7 +5,7 @@ import fromUnixTime from 'date-fns/fromUnixTime'
 
 const useStyles = makeStyles((theme) => 
 {
-	console.log(theme);
+
 	return {
 		messageHeader: {
 			"font-size": "2pt"
@@ -29,7 +29,7 @@ const Message = ({ name, content, dateTime }) =>
 	const classes = useStyles()
 	return (
 		<Card className={classes.message} elevation={3}>
-			<CardHeader className={classes.messageHeader} title={name} subheader={fromUnixTime(dateTime).toString()} />
+			<CardHeader className={classes.messageHeader} title={name} subheader={dateTime} />
 			<CardContent className={classes.messageContent}>
 				<Typography variant="body2">
 					{content}

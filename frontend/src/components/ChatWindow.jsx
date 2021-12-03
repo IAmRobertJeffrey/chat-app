@@ -1,11 +1,17 @@
 import { makeStyles } from '@mui/styles'
 import { Box } from '@mui/system'
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '@mui/material'
 import { TextField } from '@mui/material'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import Message from './Message'
 import getUnixTime from 'date-fns/getUnixTime'
+import { io } from 'socket.io-client'
+import fromUnixTime from 'date-fns/fromUnixTime'
+import { useEffect } from 'react'
+
+
+
 
 const useStyles = makeStyles((theme) => 
 {
@@ -59,10 +65,18 @@ const useStyles = makeStyles((theme) =>
 	}
 })
 
+
+
+
+
+const client = io("http://localhost:3002");
+
 const ChatWindow = () =>
 {
-
-	const messages = [
+	const [text, setText] = useState("")
+	const [name, setName] = useState("Poop")
+	const [dateTime, setDateTime] = useState()
+	const [messages, setMessages] = useState([
 		{
 			name: "Rob",
 			content: "hello there friends",
@@ -73,20 +87,53 @@ const ChatWindow = () =>
 			content: "hello back!",
 			dateTime: getUnixTime((new Date())),
 		}
-	]
+	])
+
+	useEffect(() =>
+	{
+
+		client.on("connect", () =>
+		{
+			console.log(client.id);
+
+			client.on("distributeMessage", (data) =>
+			{
+				console.log(data);
+				setMessages([...messages, data])
+			})
+		});
+
+	}, [messages, name, text, dateTime])
+
+	function handleSubmit(e)
+	{
+		e.preventDefault();
+		const now = getUnixTime((new Date()))
+		const nowFormatted = fromUnixTime(now).toString()
+		setDateTime(nowFormatted)
+		client.emit("sendMessage", { name: name, content: text, dateTime: dateTime })
+		setMessages([...messages, { name: name, content: text, dateTime: dateTime }])
+
+	}
+
 
 	const classes = useStyles()
 	return (
 		<Box className={classes.chatContainer}>
 			<Box className={classes.chatWindow}>
 
-				{messages.map((message) => (
-					<Message key={message.content} name={message.name} content={message.content} dateTime={message.dateTime} />
-				))}
+
+				{
+					messages.map((message) => (
+						<Message key={message.content} name={message.name} content={message.content} dateTime={message.dateTime} />
+					))
+				}
+
 
 			</Box>
 			<Box className={classes.chatInputBox}>
 				<form
+					onSubmit={(e) => handleSubmit(e)}
 					className={classes.chatInput}
 					noValidate
 					autoComplete="off">
@@ -95,9 +142,11 @@ const ChatWindow = () =>
 						variant="outlined"
 						label="Chat"
 						color="primary"
+						onChange={(e) => setText(e.target.value)}
 
 					/>
 					<Button
+
 						className={classes.inputButton}
 						startIcon={<MdOutlineKeyboardArrowRight />}
 						color="primary"
