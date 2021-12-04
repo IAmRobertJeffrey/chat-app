@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@mui/styles'
-import { Card, TextField } from '@mui/material';
+import { Card, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import { Button } from '@mui/material';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
@@ -17,8 +17,10 @@ const useStyles = makeStyles((theme) =>
 			zIndex: "9 !important",
 			backgroundColor: theme.palette.primary.main,
 			display: "flex",
+			flexDirection: "column",
 			justifyContent: "center",
 			alignItems: "center",
+			gap: "100px"
 		},
 		form: {
 			display: "flex",
@@ -73,6 +75,7 @@ const NameEntry = ({ name, setName, client }) =>
 
 	return (
 		<div className={classes.nameEntryContainer}>
+			<Typography color="white" variant="h1">Online Chat</Typography>
 			<Card className={classes.nameCard} elevation={3}>
 				<form
 					className={classes.form}
