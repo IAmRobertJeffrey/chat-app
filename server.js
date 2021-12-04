@@ -1,5 +1,5 @@
 
-const io = require("socket.io")(3002, {
+const io = require("socket.io")(process.env.PORT, {
 	cors: {
 		origin: "https://roberts-chatting.web.app/"
 	}

@@ -46,7 +46,7 @@ const theme = createTheme({
 
 
 })
-const client = io("https://roberts-chatting.herokuapp.com:3002");
+const client = io(`https://roberts-chatting.herokuapp.com:${process.env.PORT}`);
 
 function App()
 {
