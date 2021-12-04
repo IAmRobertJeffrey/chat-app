@@ -1,8 +1,11 @@
+var http = require('http');
 const express = require("express")
 const PORT = process.env.PORT || 3002;
 const app = express()
 
-const io = require("socket.io")(app, {
+var server = http.createServer(app);
+
+const io = require("socket.io")(server, {
 
 	cors: {
 		origin: "https://roberts-chatting.web.app",
@@ -43,3 +46,4 @@ io.on('connect', (socket) =>
 
 });
 
+server.listen(PORT);  //listen on port 80
