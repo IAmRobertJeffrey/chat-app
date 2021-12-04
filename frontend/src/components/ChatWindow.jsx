@@ -102,7 +102,7 @@ const ChatWindow = ({ scroll, client, text, setText, messages, name, setName, me
 
 	const classes = useStyles()
 	return (
-		<Card elevation={4} sx={{ paddingLeft: "20px", backgroundColor: "rgb(25, 118, 210)" }} className={classes.chatContainer}>
+		<Card elevation={4} sx={{ paddingLeft: "20px", backgroundColor: "#1565c0" }} className={classes.chatContainer}>
 			<Box className={classes.chatWindow}>
 
 
