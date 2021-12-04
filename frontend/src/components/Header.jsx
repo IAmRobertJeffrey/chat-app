@@ -1,11 +1,11 @@
 import { makeStyles } from '@mui/styles'
 import React from 'react'
-import { AppBar, Toolbar } from '@mui/material'
+import { AppBar, Toolbar, Typography } from '@mui/material'
 
 
 const useStyles = makeStyles({
 	appBar: {
-		zIndex: 2
+		zIndex: "2 !important"
 	},
 	toolBar: {
 
@@ -13,12 +13,12 @@ const useStyles = makeStyles({
 })
 
 
-const Header = () =>
+const Header = ({ name }) =>
 {
 	const classes = useStyles()
 	return (
 		<AppBar className={classes.appBar}>
-			<Toolbar></Toolbar>
+			<Toolbar><Typography>{name}</Typography></Toolbar>
 		</AppBar>
 	)
 }

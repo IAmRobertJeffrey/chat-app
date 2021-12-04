@@ -5,28 +5,34 @@ const io = require("socket.io")(3002, {
 	}
 });
 
-let messages = []
+let users = []
 
 io.on('connect', (socket) =>
 {
 	console.log(`client:${socket.id} connected`);
+	io.to(socket.id).emit("newClient", socket.id);
 
+
+	socket.on("setName", (username) =>
+	{
+		let clientName = username
+		users.push({ id: socket.id, name: clientName })
+		io.emit("distributeName", users)
+	})
 	socket.on("sendMessage", (message) =>
 	{
-		messages.push(message)
-		console.log(messages);
+
 		io.emit("distributeMessage", message)
 
 	})
 
-	socket.on("fetchMessages", () =>
-	{
-		io.emit("sendMessages", messages)
-	})
+
 
 	socket.on('disconnect', function ()
 	{
 		console.log('Client disconnected.');
+		users = users.filter((current) => current.id !== socket.id)
+		io.emit("distributeName", users)
 	});
 
 });

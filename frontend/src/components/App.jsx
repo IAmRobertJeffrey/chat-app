@@ -7,6 +7,13 @@ import Header from './Header';
 import Users from './Users';
 import ChatWindow from './ChatWindow';
 import { ThemeProvider, createTheme } from '@mui/material';
+import { useState } from 'react';
+import NameEntry from '../pages/NameEntry';
+import { useEffect, useMemo, useRef } from 'react'
+import useForceUpdate from 'use-force-update';
+import { io } from 'socket.io-client'
+import getUnixTime from 'date-fns/getUnixTime'
+import fromUnixTime from 'date-fns/fromUnixTime'
 
 const theme = createTheme({
 	// overrides: {
@@ -41,16 +48,74 @@ const theme = createTheme({
 
 
 })
-
+const client = io("http://localhost:3002");
 
 function App()
 {
+
+	const [name, setName] = useState("")
+	const forceUpdate = useForceUpdate();
+	const [text, setText] = useState("")
+	const [dateTime, setDateTime] = useState()
+	const [messages, setMessages] = useState([])
+	const list = useMemo(() => [], []);
+	const messagesRef = useRef([])
+	const [users, setUsers] = useState([])
+
+	useEffect(() =>
+	{
+
+
+
+		client.on("connect", () =>
+		{
+
+			client.on("distributeMessage", (data) =>
+			{
+
+				messagesRef.current.push(data)
+				list.push(data)
+				setMessages(messagesRef.current)
+
+				forceUpdate();
+			})
+
+			client.on("distributeName", (usersList) =>
+			{
+				setUsers(usersList)
+				console.log(usersList);
+
+			})
+
+		})
+
+
+
+
+
+	}, [dateTime, list, messagesRef, forceUpdate, setName, setMessages])
+
+
+
 	return (
 		<ThemeProvider theme={theme}>
 			<div className="App">
-				<Header />
-				<Users />
-				<ChatWindow />
+				<Header name={name} />
+
+
+				{
+					!name ?
+						<NameEntry client={client} name={name} setName={setName} />
+						:
+						<>
+							<Users users={users} />
+							<ChatWindow client={client} list={list} messagesRef={messagesRef} messages={messages} setMessages={setMessages} forceUpdate={forceUpdate} text={text} setText={setText} dateTime={dateTime} setDateTime={setDateTime} setName={setName} name={name} />
+						</>
+				}
+
+
+
+
 			</div>
 		</ThemeProvider>
 	);

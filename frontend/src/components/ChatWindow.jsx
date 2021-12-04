@@ -10,7 +10,7 @@ import { io } from 'socket.io-client'
 import fromUnixTime from 'date-fns/fromUnixTime'
 import { useEffect, useMemo, useRef } from 'react'
 import useForceUpdate from 'use-force-update';
-
+import { v4 as uuidv4 } from 'uuid';
 
 
 const useStyles = makeStyles((theme) => 
@@ -68,39 +68,10 @@ const useStyles = makeStyles((theme) =>
 
 
 
-
-const client = io("http://localhost:3002");
-
-const ChatWindow = () =>
+const ChatWindow = ({ client, text, setText, messages, name, setName, messagesRef, list, setMessages, forceUpdate, dateTime, setDateTime }) =>
 {
-	const forceUpdate = useForceUpdate();
-	const [text, setText] = useState("")
-	const [name, setName] = useState("Poop")
-	const [dateTime, setDateTime] = useState()
-	const [messages, setMessages] = useState([])
-	const list = useMemo(() => [], []);
-	const messagesRef = useRef([])
 
 
-	useEffect(() =>
-	{
-
-		client.on("connect", () =>
-		{
-			client.on("distributeMessage", (data) =>
-			{
-				messagesRef.current.push(data)
-				list.push(data)
-				console.log(data);
-				setMessages(messagesRef.current)
-
-				forceUpdate();
-			})
-		});
-
-
-
-	}, [dateTime, list, messagesRef, forceUpdate])
 
 
 
@@ -111,8 +82,8 @@ const ChatWindow = () =>
 		const now = getUnixTime((new Date()))
 		const nowFormatted = fromUnixTime(now).toString()
 		setDateTime(nowFormatted)
+
 		client.emit("sendMessage", { name: name, content: text, dateTime: nowFormatted })
-		// setMessages([...messages, { name: name, content: text, dateTime: nowFormatted }])
 		setText("")
 
 	}
@@ -127,7 +98,7 @@ const ChatWindow = () =>
 				{
 
 					messages.map((message) => (
-						<Message key={message.content} name={message.name} content={message.content} dateTime={message.dateTime} />
+						<Message key={uuidv4()} name={message.name} content={message.content} dateTime={message.dateTime} />
 					))
 				}
 
