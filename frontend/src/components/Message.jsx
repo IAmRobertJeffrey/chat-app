@@ -30,11 +30,14 @@ const Message = ({ name, content, dateTime }) =>
 	return (
 		<Card className={classes.message} elevation={3}>
 			<CardHeader className={classes.messageHeader} title={name} subheader={dateTime} />
-			<CardContent className={classes.messageContent}>
-				<Typography variant="body2">
-					{content}
-				</Typography>
-			</CardContent>
+			{
+				content && (
+					<CardContent className={classes.messageContent}>
+						<Typography variant="body2">
+							{content}
+						</Typography>
+					</CardContent>)
+			}
 		</Card>
 	)
 }

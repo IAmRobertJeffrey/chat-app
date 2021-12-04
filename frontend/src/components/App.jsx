@@ -12,6 +12,8 @@ import NameEntry from '../pages/NameEntry';
 import { useEffect, useMemo, useRef } from 'react'
 import useForceUpdate from 'use-force-update';
 import { io } from 'socket.io-client'
+import getUnixTime from 'date-fns/getUnixTime'
+import fromUnixTime from 'date-fns/fromUnixTime'
 
 const theme = createTheme({
 	// overrides: {
@@ -66,6 +68,11 @@ function App()
 		scroll.current?.scrollIntoView({ behavior: "smooth" })
 	}
 
+	function capitalizeFirstLetter(string)
+	{
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
 	useEffect(() =>
 	{
 
@@ -92,13 +99,20 @@ function App()
 				scrollToBottom();
 			})
 
+			client.on("disconnect", () =>
+			{
+				const now = getUnixTime((new Date()))
+				const nowFormatted = fromUnixTime(now).toString()
+				client.emit("sendMessage", { name: `${capitalizeFirstLetter(text)} has left`, content: ``, dateTime: nowFormatted })
+			})
+
 		})
 
 
 
 
 
-	}, [dateTime, list, messagesRef, forceUpdate, setName, setMessages])
+	}, [dateTime, list, messagesRef, forceUpdate, setName, setMessages, text])
 
 
 
