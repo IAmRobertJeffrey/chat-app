@@ -1,9 +1,12 @@
-var http = require('http');
+
 const express = require("express")
 const PORT = process.env.PORT || 3002;
 const app = express()
 
-var server = http.createServer(app);
+const server = app.listen(PORT, () =>
+{
+	console.log("Listening on port: " + PORT);
+});
 
 const io = require("socket.io")(server, {
 
@@ -45,5 +48,3 @@ io.on('connect', (socket) =>
 	});
 
 });
-
-server.listen(PORT);  //listen on port 80
