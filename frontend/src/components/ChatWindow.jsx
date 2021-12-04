@@ -60,6 +60,9 @@ const useStyles = makeStyles((theme) =>
 		inputText: {
 			width: "calc(100% - 110px)",
 
+		},
+		bottomBox: {
+
 		}
 	}
 })
@@ -67,7 +70,7 @@ const useStyles = makeStyles((theme) =>
 
 
 
-const ChatWindow = ({ client, text, setText, messages, name, setName, messagesRef, list, setMessages, forceUpdate, dateTime, setDateTime }) =>
+const ChatWindow = ({ scroll, client, text, setText, messages, name, setName, messagesRef, list, setMessages, forceUpdate, dateTime, setDateTime }) =>
 {
 
 
@@ -98,11 +101,14 @@ const ChatWindow = ({ client, text, setText, messages, name, setName, messagesRe
 
 					messages.map((message) => (
 						<Message key={uuidv4()} name={message.name} content={message.content} dateTime={message.dateTime} />
+
 					))
 				}
 
 
+				<div className={classes.bottomBox} ref={scroll} />
 			</Box>
+
 			<Box className={classes.chatInputBox}>
 				<form
 					onSubmit={(e) => handleSubmit(e)}

@@ -46,7 +46,7 @@ const theme = createTheme({
 
 
 })
-const client = io(`https://roberts-chatting.herokuapp.com`);
+const client = io(`http://localhost:3002`);
 
 function App()
 {
@@ -59,11 +59,17 @@ function App()
 	const list = useMemo(() => [], []);
 	const messagesRef = useRef([])
 	const [users, setUsers] = useState([])
+	const scroll = useRef()
+
+	const scrollToBottom = () =>
+	{
+		scroll.current?.scrollIntoView({ behavior: "smooth" })
+	}
 
 	useEffect(() =>
 	{
 
-
+		scrollToBottom();
 
 		client.on("connect", () =>
 		{
@@ -76,13 +82,14 @@ function App()
 				setMessages(messagesRef.current)
 
 				forceUpdate();
+				scrollToBottom();
 			})
 
 			client.on("distributeName", (usersList) =>
 			{
 				setUsers(usersList)
 				console.log(usersList);
-
+				scrollToBottom();
 			})
 
 		})
@@ -107,7 +114,7 @@ function App()
 						:
 						<>
 							<Users users={users} />
-							<ChatWindow client={client} list={list} messagesRef={messagesRef} messages={messages} setMessages={setMessages} forceUpdate={forceUpdate} text={text} setText={setText} dateTime={dateTime} setDateTime={setDateTime} setName={setName} name={name} />
+							<ChatWindow scroll={scroll} client={client} list={list} messagesRef={messagesRef} messages={messages} setMessages={setMessages} forceUpdate={forceUpdate} text={text} setText={setText} dateTime={dateTime} setDateTime={setDateTime} setName={setName} name={name} />
 						</>
 				}
 

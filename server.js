@@ -11,7 +11,7 @@ const server = app.listen(PORT, () =>
 const io = require("socket.io")(server, {
 
 	cors: {
-		origin: "https://roberts-chatting.web.app",
+		origin: "http://localhost:3000",
 		methods: ["GET", "POST"],
 
 	}
