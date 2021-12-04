@@ -1,7 +1,6 @@
 import { makeStyles } from '@mui/styles'
 import React from 'react'
-import { AppBar, Button, Toolbar, Typography } from '@mui/material'
-import { useTheme } from '@emotion/react'
+import { AppBar, Button, Toolbar } from '@mui/material'
 
 
 const useStyles = makeStyles({
