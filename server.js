@@ -1,8 +1,11 @@
+const express = require("express")
+const PORT = process.env.PORT || 3002;
+const app = express()
 
-const io = require("socket.io")(process.env.PORT || 3002, {
+const io = require("socket.io")(app, {
 
 	cors: {
-		origin: "https://roberts-chatting.web.app/",
+		origin: "https://roberts-chatting.web.app",
 		methods: ["GET", "POST"],
 
 	}
