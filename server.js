@@ -1,7 +1,7 @@
 
 const io = require("socket.io")(3002, {
 	cors: {
-		origin: "http://localhost:3000"
+		origin: "https://roberts-chatting.web.app/"
 	}
 });
 
