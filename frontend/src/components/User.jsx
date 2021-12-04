@@ -1,7 +1,5 @@
 import React from 'react'
 import { Typography } from '@mui/material'
-import { Box, } from '@mui/system'
-import { List } from '@mui/material'
 import { ListItem } from '@mui/material'
 import { ListItemIcon } from '@mui/material'
 import { ListItemText } from '@mui/material'

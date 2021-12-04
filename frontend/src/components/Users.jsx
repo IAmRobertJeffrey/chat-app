@@ -1,5 +1,5 @@
 import { makeStyles } from '@mui/styles'
-import { Drawer, Typography } from '@mui/material'
+import { Drawer } from '@mui/material'
 import React from 'react'
 import User from './User'
 const useStyles = makeStyles((theme) =>
