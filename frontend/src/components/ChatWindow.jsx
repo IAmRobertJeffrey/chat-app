@@ -8,7 +8,7 @@ import Message from './Message'
 import getUnixTime from 'date-fns/getUnixTime'
 import { io } from 'socket.io-client'
 import fromUnixTime from 'date-fns/fromUnixTime'
-import { useEffect } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 
 
 
@@ -76,34 +76,33 @@ const ChatWindow = () =>
 	const [text, setText] = useState("")
 	const [name, setName] = useState("Poop")
 	const [dateTime, setDateTime] = useState()
-	const [messages, setMessages] = useState([
-		{
-			name: "Rob",
-			content: "hello there friends",
-			dateTime: getUnixTime((new Date())),
-		},
-		{
-			name: "Someone",
-			content: "hello back!",
-			dateTime: getUnixTime((new Date())),
-		}
-	])
+	const [messages, setMessages] = useState([])
+	const list = useMemo(() => [], []);
+	const messagesRef = useRef([])
+
 
 	useEffect(() =>
 	{
 
 		client.on("connect", () =>
 		{
-			console.log(client.id);
-
 			client.on("distributeMessage", (data) =>
 			{
+				messagesRef.current.push(data)
+				list.push(data)
 				console.log(data);
-				setMessages([...messages, data])
+				setMessages(messagesRef.current)
+
+
 			})
 		});
 
-	}, [messages, name, text, dateTime])
+
+
+	}, [dateTime, list, messagesRef])
+
+
+
 
 	function handleSubmit(e)
 	{
@@ -111,8 +110,9 @@ const ChatWindow = () =>
 		const now = getUnixTime((new Date()))
 		const nowFormatted = fromUnixTime(now).toString()
 		setDateTime(nowFormatted)
-		client.emit("sendMessage", { name: name, content: text, dateTime: dateTime })
-		setMessages([...messages, { name: name, content: text, dateTime: dateTime }])
+		client.emit("sendMessage", { name: name, content: text, dateTime: nowFormatted })
+		// setMessages([...messages, { name: name, content: text, dateTime: nowFormatted }])
+		setText("")
 
 	}
 
@@ -124,6 +124,7 @@ const ChatWindow = () =>
 
 
 				{
+
 					messages.map((message) => (
 						<Message key={message.content} name={message.name} content={message.content} dateTime={message.dateTime} />
 					))
@@ -143,7 +144,7 @@ const ChatWindow = () =>
 						label="Chat"
 						color="primary"
 						onChange={(e) => setText(e.target.value)}
-
+						value={text}
 					/>
 					<Button
 

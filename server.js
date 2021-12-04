@@ -5,14 +5,25 @@ const io = require("socket.io")(3002, {
 	}
 });
 
+let messages = []
+
 io.on('connect', (socket) =>
 {
 	console.log(`client:${socket.id} connected`);
 
 	socket.on("sendMessage", (message) =>
 	{
-		socket.broadcast.emit("distributeMessage", message)
+		messages.push(message)
+		console.log(messages);
+		io.emit("distributeMessage", message)
+
 	})
+
+	socket.on("fetchMessages", () =>
+	{
+		io.emit("sendMessages", messages)
+	})
+
 	socket.on('disconnect', function ()
 	{
 		console.log('Client disconnected.');
