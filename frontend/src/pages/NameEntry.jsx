@@ -4,8 +4,8 @@ import { Card, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import { Button } from '@mui/material';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
-import getUnixTime from 'date-fns/getUnixTime'
-import fromUnixTime from 'date-fns/fromUnixTime'
+// import getUnixTime from 'date-fns/getUnixTime'
+// import fromUnixTime from 'date-fns/fromUnixTime'
 
 const useStyles = makeStyles((theme) => 
 {
@@ -65,9 +65,9 @@ const NameEntry = ({ name, setName, client }) =>
 
 			setNameError(false)
 			setName(capitalizeFirstLetter(text))
-			const now = getUnixTime((new Date()))
-			const nowFormatted = fromUnixTime(now).toString()
-			client.emit("sendMessage", { name: "Server", content: `${capitalizeFirstLetter(text)} has joined`, dateTime: nowFormatted })
+			// const now = getUnixTime((new Date()))
+			// const nowFormatted = fromUnixTime(now).toString()
+			client.emit("sendMessage", { name: `${capitalizeFirstLetter(text)} has joined`, content: ``, dateTime: `` })
 			client.emit("setName", (client.id, capitalizeFirstLetter(text)))
 		}
 
