@@ -90,12 +90,16 @@ const ChatWindow = ({ scroll, client, text, setText, messages, name, setName, me
 	function handleSubmit(e)
 	{
 		e.preventDefault();
-		const now = getUnixTime((new Date()))
-		const nowFormatted = fromUnixTime(now).toString()
-		setDateTime(nowFormatted)
+		if (text)
+		{
+			const now = getUnixTime((new Date()))
+			const nowFormatted = fromUnixTime(now).toString()
+			setDateTime(nowFormatted)
 
-		client.emit("sendMessage", { name: name, content: text, dateTime: nowFormatted })
-		setText("")
+			client.emit("sendMessage", { name: name, content: text, dateTime: nowFormatted })
+			setText("")
+		}
+
 
 	}
 
