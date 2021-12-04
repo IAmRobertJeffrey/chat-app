@@ -1,11 +1,12 @@
 import { makeStyles } from '@mui/styles'
 import React from 'react'
-import { AppBar, Toolbar, Typography } from '@mui/material'
+import { AppBar, Button, Toolbar, Typography } from '@mui/material'
+import { useTheme } from '@emotion/react'
 
 
 const useStyles = makeStyles({
 	appBar: {
-		zIndex: "2 !important"
+		zIndex: "2 !important",
 	},
 	toolBar: {
 
@@ -15,10 +16,14 @@ const useStyles = makeStyles({
 
 const Header = ({ name }) =>
 {
+
 	const classes = useStyles()
 	return (
 		<AppBar className={classes.appBar}>
-			<Toolbar><Typography>{name}</Typography></Toolbar>
+			{
+				name && <Toolbar><Button variant="contained" color="info">{name}</Button></Toolbar>
+			}
+
 		</AppBar>
 	)
 }

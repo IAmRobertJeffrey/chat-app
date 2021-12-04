@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@mui/styles'
-import { TextField } from '@mui/material';
+import { Card, TextField } from '@mui/material';
 import { useState } from 'react';
 import { Button } from '@mui/material';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
@@ -15,10 +15,23 @@ const useStyles = makeStyles((theme) =>
 			height: "100%",
 			maxWidth: "100%",
 			zIndex: "9 !important",
-			backgroundColor: theme.palette.primary.dark,
+			backgroundColor: theme.palette.primary.main,
 			display: "flex",
 			justifyContent: "center",
 			alignItems: "center",
+		},
+		form: {
+			display: "flex",
+			width: 500,
+			gap: 10,
+			border: "10px solid white"
+
+		},
+		field: {
+
+		},
+		nameCard: {
+
 		}
 	}
 });
@@ -60,29 +73,33 @@ const NameEntry = ({ name, setName, client }) =>
 
 	return (
 		<div className={classes.nameEntryContainer}>
-			<form
-				onSubmit={(e) => handleSubmit(e)}
-				noValidate
-				autoComplete="off">
-				<TextField
-					error={nameError}
-					onChange={(e) => setText(e.target.value.replace(/\s/g, ''))}
-					className={classes.field}
-					variant="outlined"
-					label="Username"
-					fullWidth
-					required />
+			<Card className={classes.nameCard} elevation={3}>
+				<form
+					className={classes.form}
+					onSubmit={(e) => handleSubmit(e)}
+					noValidate
+					autoComplete="off">
+					<TextField
+
+						error={nameError}
+						onChange={(e) => setText(e.target.value.replace(/\s/g, ''))}
+						className={classes.field}
+						variant="outlined"
+						label="Username"
+						fullWidth
+						required />
 
 
 
-				<Button
-					startIcon={<MdOutlineKeyboardArrowRight />}
-					color="primary"
-					variant="contained"
-					type="submit">
-					Submit
-				</Button>
-			</form>
+					<Button
+						startIcon={<MdOutlineKeyboardArrowRight />}
+						color="error"
+						variant="contained"
+						type="submit">
+						Submit
+					</Button>
+				</form>
+			</Card>
 		</div>
 	)
 }

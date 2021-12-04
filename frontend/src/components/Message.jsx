@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) =>
 		message: {
 			marginBottom: "2rem",
 			// backgroundColor: `${theme.palette.primary.dark} !important`,
+			width: "calc(100% - 20px)",
 
 		}
 	}

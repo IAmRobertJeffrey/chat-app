@@ -104,7 +104,7 @@ function App()
 
 	return (
 		<ThemeProvider theme={theme}>
-			<div className="App">
+			<div style={{ backgroundColor: theme.palette.primary.dark }} className="App">
 				<Header name={name} />
 
 

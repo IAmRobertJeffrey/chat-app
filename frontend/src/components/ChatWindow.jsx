@@ -6,6 +6,7 @@ import { TextField } from '@mui/material'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import Message from './Message'
 import getUnixTime from 'date-fns/getUnixTime'
+import { Card } from '@mui/material'
 
 import fromUnixTime from 'date-fns/fromUnixTime'
 
@@ -16,41 +17,47 @@ const useStyles = makeStyles((theme) =>
 {
 	return {
 		chatContainer: {
-			width: "calc(80% - 260px)",
+			width: "calc(80% - 250px)",
 			height: "100%",
-			marginLeft: "260px",
+			marginLeft: "250px",
 			display: "flex",
-			flexDirection: "column"
+			flexDirection: "column",
+
 
 		},
 		chatWindow: {
 			width: "100%",
+
 			// height: "calc(100% - 250px)",
 			minHeight: "calc(100vh - 250px)",
 			maxHeight: "calc(100% - 250px)",
 			height: "auto",
 			paddingTop: 100,
 			overflow: "auto",
-			paddingLeft: 10,
-			paddingRight: 10,
+			paddingLeft: 20,
+
 			wordWrap: "break-word",
+
 
 			// ThisIsWhereMessagesGo
 
 		},
 		chatInputBox: {
 			height: 120,
-			width: "100%",
+			width: "calc(100% - 20px)",
 			display: "flex",
-			padding: "10px",
-			paddingTop: "20px"
+			padding: "20px",
+			paddingTop: "20px",
+			backgroundColor: theme.palette.primary.dark,
+			alignItems: "center"
 
 		},
 		chatInput: {
-			height: 125,
+			height: 100,
 			width: "calc(100% - 20px)",
 			display: "flex",
 			gap: 10,
+			alignItems: "center"
 
 		},
 		inputButton: {
@@ -59,6 +66,8 @@ const useStyles = makeStyles((theme) =>
 		},
 		inputText: {
 			width: "calc(100% - 110px)",
+			backgroundColor: "white",
+			height: "fit-content",
 
 		},
 		bottomBox: {
@@ -93,7 +102,7 @@ const ChatWindow = ({ scroll, client, text, setText, messages, name, setName, me
 
 	const classes = useStyles()
 	return (
-		<Box className={classes.chatContainer}>
+		<Card elevation={4} sx={{ paddingLeft: "20px", backgroundColor: "rgb(25, 118, 210)" }} className={classes.chatContainer}>
 			<Box className={classes.chatWindow}>
 
 
@@ -116,8 +125,9 @@ const ChatWindow = ({ scroll, client, text, setText, messages, name, setName, me
 					noValidate
 					autoComplete="off">
 					<TextField
+						// sx={{ border: "1px solid white", borderRadius: "4px" }}
 						className={classes.inputText}
-						variant="outlined"
+						variant="filled"
 						label="Chat"
 						color="primary"
 						onChange={(e) => setText(e.target.value)}
@@ -127,14 +137,14 @@ const ChatWindow = ({ scroll, client, text, setText, messages, name, setName, me
 
 						className={classes.inputButton}
 						startIcon={<MdOutlineKeyboardArrowRight />}
-						color="primary"
+						color="error"
 						variant="contained"
 						type="submit">
 						Submit
 					</Button>
 				</form>
 			</Box>
-		</Box>
+		</Card>
 	)
 }
 
