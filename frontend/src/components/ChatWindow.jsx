@@ -9,7 +9,7 @@ import getUnixTime from 'date-fns/getUnixTime'
 import { io } from 'socket.io-client'
 import fromUnixTime from 'date-fns/fromUnixTime'
 import { useEffect, useMemo, useRef } from 'react'
-
+import useForceUpdate from 'use-force-update';
 
 
 
@@ -73,6 +73,7 @@ const client = io("http://localhost:3002");
 
 const ChatWindow = () =>
 {
+	const forceUpdate = useForceUpdate();
 	const [text, setText] = useState("")
 	const [name, setName] = useState("Poop")
 	const [dateTime, setDateTime] = useState()
@@ -93,13 +94,13 @@ const ChatWindow = () =>
 				console.log(data);
 				setMessages(messagesRef.current)
 
-
+				forceUpdate();
 			})
 		});
 
 
 
-	}, [dateTime, list, messagesRef])
+	}, [dateTime, list, messagesRef, forceUpdate])
 
 
 
