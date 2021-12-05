@@ -3,7 +3,7 @@
 
 
 ## 📝 Description
-This is a real time text chat application, created with an Express/Socket.io backend and a React(CRA) frontend. This is my first project using Material-UI, or any component library for that matter. I normally use styled-components, but for the first time opted to try out Material-Ui using emotion. 
+This is a real time text chat application, designed to allow multiple people to all join at once and instant message eachother.
 
 This project was completed as part of a [Devjam.](https://discord.com/invite/nZBxGEudY6) Each participant was given the same set of required user stories to complete, upon completing the required user stories the challenge is complete and can be submitted. 
 
@@ -16,6 +16,18 @@ In addition to the required user stories, a set of optional user stories with hi
 [A live version of the website can be found here!](https://roberts-chatting.web.app/)
 
 <hr>
+
+## Technologies
+
+ This project was created with using Express/Socket.io backend and a React(CRA) frontend. This is my first project using Material-UI, or any component library for that matter. I normally use styled-components, but for the first time opted to try out Material-Ui using emotion. 
+
+|Technology  | Description                                                                                                                  |		  
+|------------|------------------------------------------------------------------------------------------------------------------------------|
+|![React](https://raw.githubusercontent.com/IAmRobertJeffrey/chat-app/main/images/react.svg) [React](https://reactjs.org/)      | A JavaScript library for building user interfaces         |
+| [Express](https://expressjs.com/)    | Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. messages.                                                                |	
+| Socket.io  | Bidirectional and low-latency communication for every platform |	
+| [Material-Ui](https://mui.com/)| MUI provides a robust, customizable, and accessible library of foundational and advanced components, enabling you to build your own design system and develop React applications faster. |	
+
 
 ## 📔  Required Features:
 
