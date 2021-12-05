@@ -7,6 +7,8 @@ This project was completed as part of a Discord Developer Challenge. Each partic
 
 In addition to the required user stories, a set of optional user stories with higher difficulty are provided. Each set of user stories can be found in this readme.
 
+[A live version of the website can be found here!](https://roberts-chatting.web.app/)
+
 <hr>
 
 ##  Required Features:
@@ -30,3 +32,12 @@ In addition to the required user stories, a set of optional user stories with hi
 | 5. | The user can select and send emojis.                                                                   |	 	   |
 | 6. | Users are able to chat in private.                                                                     |	  	   |
 | 7. | Users can join channels on specific topics.                                                            | 	   |
+
+<hr>
+
+## Screenshots
+
+### Login Screen
+![Login Screen](https://github.com/[IAmRobertJeffrey]/[chat-app]/blob/[main]/images/startScreen.jpg?raw=true)
+
+### Chat Screen
