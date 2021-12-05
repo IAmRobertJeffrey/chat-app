@@ -7,6 +7,8 @@ This project was completed as part of a Discord Developer Challenge. Each partic
 
 In addition to the required user stories, a set of optional user stories with higher difficulty are provided. Each set of user stories can be found in this readme.
 
+<hr>
+<br/>
 
 
 ##  Required Features:
