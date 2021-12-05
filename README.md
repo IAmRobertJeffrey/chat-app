@@ -6,9 +6,8 @@ This is a real time text chat application, created with an Express/Socket.io bac
 This project was completed as part of a Discord Developer Challenge. Each participant was given the same set of required user stories to complete, upon completing the user stories the challenge is complete. 
 
 In addition to the required user stories, a set of optional user stories with higher difficulty are provided. Each set of user stories can be found in this readme.
-<br/>
+
 <hr>
-<br/>
 
 ##  Required Features:
 
