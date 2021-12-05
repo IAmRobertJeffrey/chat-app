@@ -19,7 +19,7 @@ In addition to the required user stories, a set of optional user stories with hi
 
 ## ⚙ Technologies
 
- This project was created using a Express/Socket.io backend and a React(CRA) frontend. This is my first project using Material-UI, or any component library for that matter. I normally use styled-components, but for the first time opted to try out Material-Ui using emotion. The frontend for this project was hosted on Firebase, the backend was hosted on Heroku.
+ This project was created using an Express/Socket.io backend and a React(CRA) frontend. This is my first project using Material-UI, or any component library for that matter. I normally use styled-components, but for the first time opted to try out Material-Ui using emotion. The frontend for this project was hosted on Firebase, the backend was hosted on Heroku.
 
 |Technology  | Description                                                                                                                  |		  
 |------------|------------------------------------------------------------------------------------------------------------------------------|
