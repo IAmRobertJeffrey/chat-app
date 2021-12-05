@@ -23,7 +23,7 @@ In addition to the required user stories, a set of optional user stories with hi
 
 |Technology  | Description                                                                                                                  |		  
 |------------|------------------------------------------------------------------------------------------------------------------------------|
-|![React](https://raw.githubusercontent.com/IAmRobertJeffrey/chat-app/main/images/react.svg) [React](https://reactjs.org/)      | A JavaScript library for building user interfaces         |
+| [React](https://reactjs.org/)      | A JavaScript library for building user interfaces         |
 | [Express](https://expressjs.com/)    | Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. messages.                                                                |	
 | Socket.io  | Bidirectional and low-latency communication for every platform |	
 | [Material-Ui](https://mui.com/)| MUI provides a robust, customizable, and accessible library of foundational and advanced components, enabling you to build your own design system and develop React applications faster. |	
