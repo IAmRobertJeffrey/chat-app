@@ -1,13 +1,13 @@
 # 📮 Robert's Chat App 
 
 ## Description
-This is a real time text chat application, created with an Express/Socket.io backend and a React frontend.
+This is a real time text chat application, created with an Express/Socket.io backend and a React(CRA) frontend. This is my first project using Material-UI, or any component library for that matter. I normally use styled-components, but for the first time opted to try out Material-Ui using emotion. 
 
 This project was completed as part of a Discord Developer Challenge. Each participant was given the same set of required user stories to complete, upon completing the user stories the challenge is complete. 
 
 In addition to the required user stories, a set of optional user stories with higher difficulty are provided. Each set of user stories can be found in this readme.
 
-<hr>
+
 
 ##  Required Features:
 
@@ -17,7 +17,7 @@ In addition to the required user stories, a set of optional user stories with hi
 | 2.   | The user can see an input field where they can type messages.                                                                |	✔	   |
 | 3.   | By pressing the enter key or clicking on the send button the text will be displayed in the chat box alongside their username |	✔	   |
 
-<hr>
+
 
 ## Optional Features: 
 
