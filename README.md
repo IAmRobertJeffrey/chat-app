@@ -42,4 +42,4 @@ In addition to the required user stories, a set of optional user stories with hi
 
 
 ### Chat Screen
-![Chat Screen](https://raw.githubusercontent.com/IAmRobertJeffrey/chat-app/main/images/chatScreen.jpg?raw=true)
+![Chat Screen](https://raw.githubusercontent.com/IAmRobertJeffrey/chat-app/main/images/chatScreen.JPG?raw=true)
