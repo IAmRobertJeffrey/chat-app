@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) =>
 {
 	return {
 		chatContainer: {
-			width: "calc(80% - 250px)",
+			width: "calc(100% - 270px)",
 			height: "100%",
 			marginLeft: "250px",
 			display: "flex",
