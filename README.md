@@ -28,6 +28,12 @@ In addition to the required user stories, a set of optional user stories with hi
 | [Socket.io](https://socket.io)  | Bidirectional and low-latency communication for every platform |	
 | [Material-Ui](https://mui.com/)| MUI provides a robust, customizable, and accessible library of foundational and advanced components, enabling you to build your own design system and develop React applications faster. |	
 
+| Hosting  | Description                                                           |	
+|------------|------------------------------------------------------------------------------------------------------------------------------|
+| [Firebase](https://firebase.google.com/)| Front end hosting was through firebase |	
+| [Heroku](https://dashboard.heroku.com/)| Back end hosting was through heroku |	
+
+<hr>
 
 ## 📔  Required Features:
 
