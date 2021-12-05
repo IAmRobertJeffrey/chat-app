@@ -17,7 +17,7 @@ In addition to the required user stories, a set of optional user stories with hi
 
 <hr>
 
-## Technologies
+## ⚙ Technologies
 
  This project was created with using Express/Socket.io backend and a React(CRA) frontend. This is my first project using Material-UI, or any component library for that matter. I normally use styled-components, but for the first time opted to try out Material-Ui using emotion. The frontend for this project was hosted on Firebase, the backend was hosted on Heroku.
 
@@ -67,3 +67,13 @@ In addition to the required user stories, a set of optional user stories with hi
 
 ### Chat Screen
 ![Chat Screen](https://raw.githubusercontent.com/IAmRobertJeffrey/chat-app/main/images/chatScreen.JPG?raw=true)
+
+<hr>
+
+## ⌨ Installation
+
+## 🚀 Contribute
+
+Want to contribute? You can always submit a pull request and I will look at it when I get around to it. Though due to this project being for a devjam, it's unlikely this will be developed much further. You can always talk to me/ask to collaberate on future projects too!  
+
+## 📃 License
