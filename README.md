@@ -38,7 +38,7 @@ In addition to the required user stories, a set of optional user stories with hi
 ## Screenshots
 
 ### Login Screen
-![Login Screen](https://raw.githubusercontent.com/IAmRobertJeffrey/chat-app/main/images/startScreen.JPG?raw=true)
+![Login Screen](https://raw.githubusercontent.com/IAmRobertJeffrey/chat-app/main/images/startScreen.bmp?raw=true)
 
 
 ### Chat Screen
