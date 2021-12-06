@@ -51,7 +51,7 @@ In addition to the required user stories, a set of optional user stories with hi
 |----|--------------------------------------------------------------------------------------------------------|--------|
 | 1. | The messages will be visible to all users that are currently in the chat app. (using WebSockets)       |	✔	   |
 | 2. | When a new user joins the chat, a message is displayed to all existing users announcing their arrival. |	✔	   |
-| 3. | Messages are saved in a database.                                                                      |	✔	   |
+| 3. | Messages are saved in a database.                                                                      |	❌	  |
 | 4. | The user can send images, videos and links which will be displayed properly.                           |	❌     |
 | 5. | The user can select and send emojis.                                                                   |	❌     |
 | 6. | Users are able to chat in private.                                                                     |	❌     |

@@ -83,10 +83,6 @@ const ChatWindow = ({ scroll, client, text, setText, messages, name, setName, me
 {
 
 
-
-
-
-
 	function handleSubmit(e)
 	{
 		e.preventDefault();
@@ -99,8 +95,6 @@ const ChatWindow = ({ scroll, client, text, setText, messages, name, setName, me
 			client.emit("sendMessage", { name: name, content: text, dateTime: nowFormatted })
 			setText("")
 		}
-
-
 	}
 
 
