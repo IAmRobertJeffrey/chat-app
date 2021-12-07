@@ -76,4 +76,3 @@ In addition to the required user stories, a set of optional user stories with hi
 
 Want to contribute? You can always submit a pull request and I will look at it when I get around to it. Though due to this project being for a devjam, it's unlikely this will be developed much further. You can always talk to me/ask to collaberate on future projects too!  
 
-## 📃 License
