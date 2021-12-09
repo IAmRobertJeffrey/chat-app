@@ -72,6 +72,58 @@ In addition to the required user stories, a set of optional user stories with hi
 
 ## ⌨ Installation
 
+### 1. Clone this repository.
+
+### 2. Run npm install to install dependencies.
+<hr/>
+
+### 3. Change line 13 in server.js from this:
+```javascript
+
+		origin: "https://roberts-chatting.web.app"		
+```
+### To this:
+```javascript
+
+		origin: "http://localhost:3000"		
+```
+### 4. Change line 50 of ./frontend/App.jsx from this:
+```javascript
+
+const client = io(`https://roberts-chatting.herokuapp.com`);
+```
+### To this
+```javascript
+
+const client = io(`http://localhost:3001`);
+```
+
+### 5. Navigate to the front end with 
+```
+cd frontend
+```
+
+### 6. Type npm run start into the terminal to start the front end, it should be started on port 3000
+
+### 7. Navigate to the server with
+```
+ cd ../
+ ```
+
+ ### 8. Run the server with 
+ ```
+ npm run dev
+ ```
+ ### This should be started on port 3001 (it should prompt you to start on port 3001 because the front end is already running on 3000)
+
+<br>
+
+  ### The application should now be running.
+<hr/>
+
+
+<br>
+
 ## 🚀 Contribute
 
 Want to contribute? You can always submit a pull request and I will look at it when I get around to it. Though due to this project being for a devjam, it's unlikely this will be developed much further. You can always talk to me/ask to collaberate on future projects too!  
