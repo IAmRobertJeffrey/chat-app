@@ -102,7 +102,7 @@ function App()
 			})
 		})
 
-	}, [dateTime, list, messagesRef, forceUpdate, setName, setMessages, text])
+	}, [dateTime, list, messagesRef, forceUpdate, setName, setMessages])
 
 
 
